@@ -1,0 +1,457 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Anindo | 3D Artist + CS Student</title>
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+  <!-- Top Nav -->
+  <header class="nav-wrap">
+    <nav class="nav">
+      <div class="brand" data-scroll="#top">
+        <span class="brand-dot"></span>
+        <span class="brand-text">ANINDO</span>
+      </div>
+
+      <div class="nav-links">
+        <a class="nav-link" href="#top" data-scroll="#top">Home</a>
+        <a class="nav-link" href="#about" data-scroll="#about">About</a>
+        <a class="nav-link" href="#skills" data-scroll="#skills">Skills</a>
+          <a href="{{ url_for('static', filename='files/Resume of Anindo.pdf') }}"
+   class="nav-link"
+   target="_blank">
+   Resume
+</a>
+
+      </div>
+
+      <div class="nav-cta">
+        <a class="btn btn-ghost" href="#portfolio" data-scroll="#portfolio">Portfolio</a>
+        <!-- CV later: add link to PDF -->
+        <a class="btn btn-solid" href="#contact" data-scroll="#contact">Hire / Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Page top anchor -->
+  <div id="top"></div>
+
+ <!-- Hero -->
+<section class="section hero" aria-label="Hero">
+    <canvas id="techCanvas"></canvas>
+  <div class="hero-bg"></div>
+
+
+  <div class="page">
+    <div class="hero-grid">
+
+      <!-- LEFT TEXT AREA -->
+      <div class="hero-left">
+<h1 class="title">
+  Hi, I am <br />
+  <span class="wave-text" id="waveName">Anindo Dey Ani</span>
+</h1>
+
+<p class="kicker">3D Artist & Tech Lover</p>
+
+      </div>
+
+      <!-- RIGHT IMAGE AREA -->
+      <div class="hero-right">
+        <div class="profile-wrapper">
+          <img src="{{ url_for('static', filename='images/profile.jpg') }}" alt="Anindo">
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+ <!-- ================= ABOUT ================= -->
+<section class="section about" id="about">
+  <div class="page about-container">
+
+    <div class="section-head">
+      <h2 class="h2">About Me</h2>
+      <p class="muted">3D Artist & Tech Enthusiast.</p>
+    </div>
+
+    <div class="about-grid">
+
+      <!-- LEFT SIDE -->
+      <div class="about-left">
+
+        <!-- CARD 1 -->
+        <div class="about-card">
+          <h3>👋 Who I Am</h3>
+
+          <div class="card-content">
+            <p>
+              Hi, I’m Anindo a 3D Artist focused on clean modeling,
+              realistic lighting, and minimal presentation.
+              I love creating detailed 3D works that look simple but feel premium.
+            </p>
+            <p>
+              I’m also studying Computer Science, which helps me think logically
+              and build structured, organized projects.
+            </p>
+          </div>
+
+          <button class="read-more-btn">Read More</button>
+        </div>
+
+        <!-- CARD 2 -->
+        <div class="about-card">
+          <h3>🚀 My Journey</h3>
+
+          <div class="card-content">
+            <p>
+              My journey in 3D was very amazing.
+              I did an internship in 3D in the last semester of my diploma degree.
+              From there, my 3D journey started. After that,
+              I got a job in that office right after the internet.
+              That office was my first office. Its name is Right River Bangladesh Limited.
+            </p>
+            <p>
+              This is how my journey in 3D began. Then, to fulfill my childhood dream,
+              I enrolled in Computer Science. I am currently studying in my fourth year of Computer Science.
+            </p>
+          </div>
+
+          <button class="read-more-btn">Read More</button>
+        </div>
+
+      </div>
+
+      <!-- RIGHT SIDE -->
+      <div class="about-right">
+
+        <!-- CARD 3 -->
+        <div class="about-card">
+          <h3>🛠 What I Do</h3>
+
+          <div class="card-content">
+            <ul class="about-list">
+              <li>Furniture & Product 3D Modeling</li>
+              <li>Clean Topology & Optimized Workflow</li>
+              <li>UV Mapping, Texturing, Lighting & Rendering</li>
+              <li>Realistic Product Visualization</li>
+              <li>Interior & Exterior design Visualization</li>
+              <li>Database Design</li>
+              <li>Networking Design</li>
+              <li>Website Design, Development & Maintenance</li>
+            </ul>
+          </div>
+
+          <button class="read-more-btn">Read More</button>
+        </div>
+
+        <!-- CARD 4 -->
+        <div class="about-card highlight-card">
+          <h3>🎯 Strength & Goal</h3>
+
+          <div class="card-content">
+            <p>
+              I focus on details. I prefer quality over quantity.
+              I keep my work structured and professional.
+            </p>
+            <p>
+              My goal is to combine 3D visualization and development
+              to build premium digital experiences that feel modern and smooth.
+            </p>
+          </div>
+
+          <button class="read-more-btn">Read More</button>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+    <!-- ================= SKILLS ================= -->
+<section class="section" id="skills">
+  <div class="page">
+
+    <div class="section-head">
+      <h2 class="h2">Skills</h2>
+      <p class="muted">Dual profile: 3D + Computer Science</p>
+    </div>
+
+    <div class="skills-grid-4">
+
+      <!-- CARD 1 -->
+      <div class="skill-card">
+        <div class="skill-top">
+          <span class="tag">3D</span>
+          <h3 class="h3">3D Production</h3>
+        </div>
+
+        <div class="chips">
+          <span class="chip">Modeling</span>
+          <span class="chip">Clean Topology</span>
+          <span class="chip">UV Mapping</span>
+          <span class="chip">Texturing</span>
+          <span class="chip">Lighting</span>
+          <span class="chip">Rendering</span>
+          <span class="chip">Product Visualization</span>
+        </div>
+      </div>
+
+      <!-- CARD 2 -->
+      <div class="skill-card">
+        <div class="skill-top">
+          <span class="tag">CS</span>
+          <h3 class="h3">Development</h3>
+        </div>
+
+        <div class="chips">
+          <span class="chip">Python</span>
+          <span class="chip">Flask</span>
+          <span class="chip">Java</span>
+          <span class="chip">Spring Boot</span>
+          <span class="chip">HTML</span>
+          <span class="chip">CSS</span>
+          <span class="chip">JavaScript</span>
+          <span class="chip">REST API</span>
+            <span class="chip">Networking</span>
+            <span class="chip">Database</span>
+        </div>
+      </div>
+
+      <!-- CARD 3 -->
+      <div class="skill-card">
+        <div class="skill-top">
+          <span class="tag">UX</span>
+          <h3 class="h3">Presentation</h3>
+        </div>
+
+        <div class="chips">
+          <span class="chip">Minimal UI</span>
+          <span class="chip">Clean Layout</span>
+          <span class="chip">Hover Motion</span>
+          <span class="chip">Portfolio Flow</span>
+          <span class="chip">Smooth Sections</span>
+          <span class="chip">Modern Styling</span>
+        </div>
+      </div>
+
+      <!-- CARD 4 (NEW) -->
+      <div class="skill-card">
+        <div class="skill-top">
+          <span class="tag">Tools</span>
+          <h3 class="h3">Software</h3>
+        </div>
+
+        <div class="chips">
+            <span class="chip">3ds Max</span>
+            <span class="chip">Blender</span>
+            <span class="chip">Unreal Engine</span>
+          <span class="chip">Substance Painter</span>
+          <span class="chip">Substance Designer</span>
+          <span class="chip">Photoshop</span>
+          <span class="chip">Illustrator</span>
+          <span class="chip">Git / GitHub</span>
+          <span class="chip">IntelliJ IDEA</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================= PORTFOLIO ================= -->
+<section class="section portfolio" id="portfolio">
+  <div class="page portfolio-container">
+
+    <!-- SECTION HEADER -->
+    <div class="section-head">
+      <h2 class="h2">Portfolio</h2>
+
+      <div class="portfolio-toggle">
+        <button class="toggle-btn active" data-view="modelView">
+          Model View
+        </button>
+        <button class="toggle-btn" data-view="renderView">
+          Render View
+        </button>
+      </div>
+
+      <p class="muted">Select a 3D Works and view clearly</p>
+    </div>
+
+    <!-- CONTENT WRAPPER -->
+    <div class="portfolio-content-wrapper">
+
+      <!-- MODEL VIEW -->
+      <div id="modelView" class="portfolio-content active">
+
+        <div class="portfolio-grid">
+
+          <div class="model-list">
+            <div class="model-item active"
+                 data-model="{{ url_for('static', filename='models/model1.glb') }}">
+              Model 01
+            </div>
+
+            <div class="model-item"
+                 data-model="{{ url_for('static', filename='models/model2.glb') }}">
+              Model 02
+            </div>
+
+            <div class="model-item"
+                 data-model="{{ url_for('static', filename='models/model3.glb') }}">
+              Model 03
+            </div>
+          </div>
+
+          <div class="viewer-wrapper">
+            <model-viewer
+              id="mainViewer"
+              src="{{ url_for('static', filename='models/model1.glb') }}"
+              camera-controls
+              auto-rotate
+              shadow-intensity="1"
+              exposure="1"
+              background-color="white"
+              style="width:100%; height:100%;">
+            </model-viewer>
+          </div>
+
+        </div>
+      </div>
+
+<!-- ================= RENDER VIEW ================= -->
+<div id="renderView" class="portfolio-content">
+
+  <div class="render-container">
+
+    <div class="render-card">
+      <img src="{{ url_for('static', filename='renders/render1.jpg') }}" alt="Render 1">
+    </div>
+
+    <div class="render-card">
+      <img src="{{ url_for('static', filename='renders/render2.jpg') }}" alt="Render 2">
+    </div>
+
+    <div class="render-card">
+      <img src="{{ url_for('static', filename='renders/render3.jpg') }}" alt="Render 3">
+    </div>
+
+    <div class="render-card">
+      <img src="{{ url_for('static', filename='renders/render4.jpg') }}" alt="Render 4">
+    </div>
+      <div class="render-card">
+  <img src="{{ url_for('static', filename='renders/render5.jpg') }}" alt="Render 5">
+</div>
+
+<div class="render-card">
+  <img src="{{ url_for('static', filename='renders/render6.jpg') }}" alt="Render 6">
+</div>
+ <div class="render-card">
+  <img src="{{ url_for('static', filename='renders/render7.jpg') }}" alt="Render 5">
+</div>
+
+<div class="render-card">
+  <img src="{{ url_for('static', filename='renders/render8.jpg') }}" alt="Render 6">
+</div>
+
+
+
+  </div>
+</div>
+
+<!-- ===== IMAGE LIGHTBOX (এখানে বসবে) ===== -->
+<div id="lightbox" class="lightbox">
+  <span class="lightbox-close">&times;</span>
+  <img class="lightbox-img" id="lightboxImg">
+</div>
+
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section class="section contact" id="contact">
+  <div class="page">
+
+    <div class="section-head">
+      <h2 class="h2">Contact</h2>
+      <p class="muted">Let’s work together or build something meaningful.</p>
+    </div>
+
+<div class="contact-card">
+
+  <!-- LEFT CONTENT -->
+  <div class="contact-left">
+    <h3 class="h3">Get In Touch</h3>
+
+    <p class="text">
+      Feel free to reach out for 3D projects, collaborations,
+      or development work.
+    </p>
+
+    <p class="text mono email-text">
+      anindodeyani@gmail.com
+    </p>
+
+    <div class="contact-links">
+      <a href="/static/files/Resume of Anindo.pdf" download class="btn btn-ghost">
+        Download CV
+      </a>
+
+      <a href="https://www.linkedin.com/in/anindo-dey-ani" target="_blank" class="btn btn-ghost">
+        LinkedIn
+      </a>
+
+      <a href="https://www.behance.net/anindo" target="_blank" class="btn btn-ghost">
+        Behance
+      </a>
+
+      <a href="https://github.com/anindodeyani" target="_blank" class="btn btn-ghost">
+        GitHub
+      </a>
+    </div>
+  </div>
+
+
+  <!-- RIGHT SIDE BUTTONS -->
+  <div class="contact-right">
+
+    <a href="#top" class="btn btn-solid big-btn">
+      ↑ Back To Top
+    </a>
+
+    <a href="mailto:anindodeyani@gmail.com?subject=Project Inquiry"
+       class="btn btn-solid big-btn">
+      ✉ Email Me
+    </a>
+
+  </div>
+
+</div>
+</section>
+
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-inner">
+        <span class="muted">© <span id="year"></span> Anindo's portfolio.</span>
+      </div>
+    </footer>
+  </main>
+
+  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
+<script type="module"
+src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
+
