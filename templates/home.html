@@ -3,35 +3,41 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Anindo | 3D Artist + CS Student</title>
-
+  <title>Anindo's Portfolio</title>
+  <link rel="icon" type="image/svg+xml"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='40' fill='%23ff2d2d'%3E%3Canimate attributeName='opacity' values='1;0.3;1' dur='1.2s' repeatCount='indefinite'/%3E%3C/circle%3E%3C/svg%3E">
   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
+
 
 <body>
   <!-- Top Nav -->
   <header class="nav-wrap">
     <nav class="nav">
+
       <div class="brand" data-scroll="#top">
         <span class="brand-dot"></span>
         <span class="brand-text">ANINDO</span>
       </div>
 
-      <div class="nav-links">
+      <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <div class="nav-links" id="navLinks">
         <a class="nav-link" href="#top" data-scroll="#top">Home</a>
         <a class="nav-link" href="#about" data-scroll="#about">About</a>
         <a class="nav-link" href="#skills" data-scroll="#skills">Skills</a>
-          <a href="{{ url_for('static', filename='files/Resume of Anindo.pdf') }}"
-   class="nav-link"
-   target="_blank">
-   Resume
-</a>
-
+        <a class="nav-link" href="#portfolio" data-scroll="#portfolio">Portfolio</a>
+        <a class="nav-link" href="{{ url_for('studyhub') }}">Study Hub</a>
+        <a class="nav-link" href="{{ url_for('static', filename='files/Resume of Anindo.pdf') }}" target="_blank" rel="noopener">Resume</a>
+        <a class="nav-link nav-link-mobile" href="#contact" data-scroll="#contact">Hire / Contact</a>
       </div>
 
       <div class="nav-cta">
         <a class="btn btn-ghost" href="#portfolio" data-scroll="#portfolio">Portfolio</a>
-        <!-- CV later: add link to PDF -->
         <a class="btn btn-solid" href="#contact" data-scroll="#contact">Hire / Contact</a>
       </div>
     </nav>
@@ -91,7 +97,7 @@
 
           <div class="card-content">
             <p>
-              Hi, I’m Anindo a 3D Artist focused on clean modeling,
+              Hi, I’m Anindo, a 3D Artist focused on clean modeling,
               realistic lighting, and minimal presentation.
               I love creating detailed 3D works that look simple but feel premium.
             </p>
@@ -113,7 +119,7 @@
               My journey in 3D was very amazing.
               I did an internship in 3D in the last semester of my diploma degree.
               From there, my 3D journey started. After that,
-              I got a job in that office right after the internet.
+              I got a job in that office right after the internship.
               That office was my first office. Its name is Right River Bangladesh Limited.
             </p>
             <p>
@@ -265,116 +271,224 @@
     </div>
   </div>
 </section>
-
 <!-- ================= PORTFOLIO ================= -->
 <section class="section portfolio" id="portfolio">
-  <div class="page portfolio-container">
+<div class="page portfolio-container">
 
-    <!-- SECTION HEADER -->
-    <div class="section-head">
-      <h2 class="h2">Portfolio</h2>
+<!-- SECTION HEADER -->
+<div class="section-head">
 
-      <div class="portfolio-toggle">
-        <button class="toggle-btn active" data-view="modelView">
-          Model View
-        </button>
-        <button class="toggle-btn" data-view="renderView">
-          Render View
-        </button>
-      </div>
+<h2 class="h2">Portfolio</h2>
 
-      <p class="muted">Select a 3D Works and view clearly</p>
-    </div>
+<div class="portfolio-toggle">
 
-    <!-- CONTENT WRAPPER -->
-    <div class="portfolio-content-wrapper">
+<!-- DEFAULT VIEW -->
+<button class="toggle-btn active" data-view="renderView">
+Render View
+</button>
 
-      <!-- MODEL VIEW -->
-      <div id="modelView" class="portfolio-content active">
+<button class="toggle-btn" data-view="modelView">
+Model View
+</button>
 
-        <div class="portfolio-grid">
+</div>
 
-          <div class="model-list">
-            <div class="model-item active"
-                 data-model="{{ url_for('static', filename='models/model1.glb') }}">
-              Model 01
-            </div>
+<p class="muted">Select a 3D work and explore it clearly</p>
 
-            <div class="model-item"
-                 data-model="{{ url_for('static', filename='models/model2.glb') }}">
-              Model 02
-            </div>
+</div>
 
-            <div class="model-item"
-                 data-model="{{ url_for('static', filename='models/model3.glb') }}">
-              Model 03
-            </div>
-          </div>
+<!-- ================= CONTENT WRAPPER ================= -->
+<div class="portfolio-content-wrapper">
 
-          <div class="viewer-wrapper">
-            <model-viewer
-              id="mainViewer"
-              src="{{ url_for('static', filename='models/model1.glb') }}"
-              camera-controls
-              auto-rotate
-              shadow-intensity="1"
-              exposure="1"
-              background-color="white"
-              style="width:100%; height:100%;">
-            </model-viewer>
-          </div>
+<!-- ================= RENDER VIEW (DEFAULT) ================= -->
+<div id="renderView" class="portfolio-content active">
 
-        </div>
-      </div>
+<div class="render-container">
 
-<!-- ================= RENDER VIEW ================= -->
-<div id="renderView" class="portfolio-content">
-
-  <div class="render-container">
-
-    <div class="render-card">
-      <img src="{{ url_for('static', filename='renders/render1.jpg') }}" alt="Render 1">
-    </div>
-
-    <div class="render-card">
-      <img src="{{ url_for('static', filename='renders/render2.jpg') }}" alt="Render 2">
-    </div>
-
-    <div class="render-card">
-      <img src="{{ url_for('static', filename='renders/render3.jpg') }}" alt="Render 3">
-    </div>
-
-    <div class="render-card">
-      <img src="{{ url_for('static', filename='renders/render4.jpg') }}" alt="Render 4">
-    </div>
-      <div class="render-card">
-  <img src="{{ url_for('static', filename='renders/render5.jpg') }}" alt="Render 5">
+<div class="render-card">
+<img src="{{ url_for('static', filename='renders/render1.png') }}" alt="3D portfolio render">
 </div>
 
 <div class="render-card">
-  <img src="{{ url_for('static', filename='renders/render6.jpg') }}" alt="Render 6">
-</div>
- <div class="render-card">
-  <img src="{{ url_for('static', filename='renders/render7.jpg') }}" alt="Render 5">
+<img src="{{ url_for('static', filename='renders/render2.png') }}" alt="3D portfolio render">
 </div>
 
 <div class="render-card">
-  <img src="{{ url_for('static', filename='renders/render8.jpg') }}" alt="Render 6">
+<img src="{{ url_for('static', filename='renders/render3.png') }}" alt="3D portfolio render">
+</div>
+
+<div class="render-card">
+<img src="{{ url_for('static', filename='renders/render4.png') }}" alt="3D portfolio render">
+</div>
+
+<div class="render-card">
+<img src="{{ url_for('static', filename='renders/render5.jpg') }}" alt="3D portfolio render">
+</div>
+
+<div class="render-card">
+<img src="{{ url_for('static', filename='renders/render6.jpg') }}" alt="3D portfolio render">
+</div>
+
+<div class="render-card">
+<img src="{{ url_for('static', filename='renders/render7.jpg') }}" alt="3D portfolio render">
+</div>
+
+<div class="render-card">
+<img src="{{ url_for('static', filename='renders/render8.jpg') }}" alt="3D portfolio render">
+</div>
+    <div class="render-card">
+<img src="{{ url_for('static', filename='renders/render9.jpg') }}" alt="3D portfolio render">
+</div>
+
+        <div class="render-card">
+<img src="{{ url_for('static', filename='renders/render10.jpg') }}" alt="3D portfolio render">
+</div>
+
+        <div class="render-card">
+<img src="{{ url_for('static', filename='renders/render11.jpg') }}" alt="3D portfolio render">
+</div>
+
+        <div class="render-card">
+<img src="{{ url_for('static', filename='renders/render12.jpg') }}" alt="3D portfolio render">
+</div>
+
+        <div class="render-card">
+<img src="{{ url_for('static', filename='renders/render13.jpg') }}" alt="3D portfolio render">
+</div>
+        <div class="render-card">
+<img src="{{ url_for('static', filename='renders/render14.jpg') }}" alt="3D portfolio render">
+</div>
+        <div class="render-card">
+<img src="{{ url_for('static', filename='renders/render15.jpg') }}" alt="3D portfolio render">
+</div>
+        <div class="render-card">
+<img src="{{ url_for('static', filename='renders/render16.jpg') }}" alt="3D portfolio render">
+</div>
+        <div class="render-card">
+<img src="{{ url_for('static', filename='renders/render17.jpg') }}" alt="3D portfolio render">
+</div>
+        <div class="render-card">
+<img src="{{ url_for('static', filename='renders/render18.jpg') }}" alt="3D portfolio render">
+</div>
+        <div class="render-card">
+<img src="{{ url_for('static', filename='renders/render19.jpg') }}" alt="3D portfolio render">
+</div>
+        <div class="render-card">
+<img src="{{ url_for('static', filename='renders/render20.jpg') }}" alt="3D portfolio render">
+</div>
+
+        <div class="render-card">
+<img src="{{ url_for('static', filename='renders/render21.jpg') }}" alt="3D portfolio render">
+</div>
+        <div class="render-card">
+<img src="{{ url_for('static', filename='renders/render22.jpg') }}" alt="3D portfolio render">
+</div>
+        <div class="render-card">
+<img src="{{ url_for('static', filename='renders/render23.jpg') }}" alt="3D portfolio render">
+</div>
+        <div class="render-card">
+<img src="{{ url_for('static', filename='renders/render24.jpg') }}" alt="3D portfolio render">
+</div>
+
+            <div class="render-card">
+<img src="{{ url_for('static', filename='renders/render25.jpg') }}" alt="3D portfolio render">
+</div>
+            <div class="render-card">
+<img src="{{ url_for('static', filename='renders/render26.jpg') }}" alt="3D portfolio render">
+</div>
+            <div class="render-card">
+<img src="{{ url_for('static', filename='renders/render27.jpg') }}" alt="3D portfolio render">
+</div>
+            <div class="render-card">
+<img src="{{ url_for('static', filename='renders/render28.jpg') }}" alt="3D portfolio render">
+</div>
+
+</div>
 </div>
 
 
+<!-- ================= MODEL VIEW ================= -->
+<div id="modelView" class="portfolio-content">
 
-  </div>
+<div class="portfolio-grid">
+
+<!-- MODEL LIST -->
+<div class="model-list">
+
+<div class="model-item active"
+data-model="{{ url_for('static', filename='models/model1.glb') }}">
+Camera
 </div>
 
-<!-- ===== IMAGE LIGHTBOX (এখানে বসবে) ===== -->
+<div class="model-item"
+data-model="{{ url_for('static', filename='models/model2.glb') }}">
+Arm Chair
+</div>
+
+<div class="model-item"
+data-model="{{ url_for('static', filename='models/model3.glb') }}">
+Bi-cycle
+</div>
+    <div class="model-item"
+data-model="{{ url_for('static', filename='models/model4.glb') }}">
+World Globe
+</div>
+        <div class="model-item"
+data-model="{{ url_for('static', filename='models/model5.glb') }}">
+Lego Speed Boat
+</div>
+        <div class="model-item"
+data-model="{{ url_for('static', filename='models/model6.glb') }}">
+Lego Robo Family
+</div>
+        <div class="model-item"
+data-model="{{ url_for('static', filename='models/model7.glb') }}">
+Drone
+</div>
+        <div class="model-item"
+data-model="{{ url_for('static', filename='models/model8.glb') }}">
+Joy Stick
+</div>
+        <div class="model-item"
+data-model="{{ url_for('static', filename='models/model9.glb') }}">
+Cute Puppy
+</div>
+        <div class="model-item"
+data-model="{{ url_for('static', filename='models/model10.glb') }}">
+Tufting Chair
+</div>
+
+</div>
+
+<!-- VIEWER -->
+<div class="viewer-wrapper">
+
+<model-viewer
+id="mainViewer"
+src="{{ url_for('static', filename='models/model1.glb') }}"
+camera-controls
+auto-rotate
+shadow-intensity="1"
+exposure="1"
+background-color="white"
+style="width:100%; height:100%;">
+</model-viewer>
+
+</div>
+
+</div>
+</div>
+
+</div>
+
+<!-- ===== LIGHTBOX ===== -->
 <div id="lightbox" class="lightbox">
-  <span class="lightbox-close">&times;</span>
-  <img class="lightbox-img" id="lightboxImg">
+<span class="lightbox-close">&times;</span>
+<img class="lightbox-img" id="lightboxImg" alt="Enlarged portfolio render">
 </div>
 
+</div>
 </section>
-
 <!-- ================= CONTACT ================= -->
 <section class="section contact" id="contact">
   <div class="page">
@@ -400,19 +514,19 @@
     </p>
 
     <div class="contact-links">
-      <a href="/static/files/Resume of Anindo.pdf" download class="btn btn-ghost">
+      <a href="{{ url_for('static', filename='files/Resume of Anindo.pdf') }}" download class="btn btn-ghost">
         Download CV
       </a>
 
-      <a href="https://www.linkedin.com/in/anindo-dey-ani" target="_blank" class="btn btn-ghost">
+      <a href="https://www.linkedin.com/in/anindo-dey-ani" target="_blank" rel="noopener" class="btn btn-ghost">
         LinkedIn
       </a>
 
-      <a href="https://www.behance.net/anindo" target="_blank" class="btn btn-ghost">
+      <a href="https://www.behance.net/anindo" target="_blank" rel="noopener" class="btn btn-ghost">
         Behance
       </a>
 
-      <a href="https://github.com/anindodeyani" target="_blank" class="btn btn-ghost">
+      <a href="https://github.com/anindodeyani" target="_blank" rel="noopener" class="btn btn-ghost">
         GitHub
       </a>
     </div>
@@ -422,7 +536,7 @@
   <!-- RIGHT SIDE BUTTONS -->
   <div class="contact-right">
 
-    <a href="#top" class="btn btn-solid big-btn">
+    <a href="#top" class="btn btn-solid big-btn" data-scroll="#top">
       ↑ Back To Top
     </a>
 
@@ -433,9 +547,9 @@
 
   </div>
 
-</div>
+    </div>
+  </div>
 </section>
-
 
     <!-- Footer -->
     <footer class="footer">
@@ -443,15 +557,8 @@
         <span class="muted">© <span id="year"></span> Anindo's portfolio.</span>
       </div>
     </footer>
-  </main>
 
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
   <script src="{{ url_for('static', filename='js/main.js') }}"></script>
 </body>
 </html>
-<script type="module"
-src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
-
-<script src="{{ url_for('static', filename='js/main.js') }}"></script>
-</body>
-</html>
-

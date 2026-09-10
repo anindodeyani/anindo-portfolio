@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Study Hub</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='40' fill='%23ff2d2d'%3E%3Canimate attributeName='opacity' values='1;0.3;1' dur='1.2s' repeatCount='indefinite'/%3E%3C/circle%3E%3C/svg%3E">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/studyhub.css') }}">
+</head>
+<body>
+
+<header class="studyhub-header">
+  <h1>Study Hub</h1>
+  <a href="{{ url_for('home') }}" class="back-btn">← Back to Home</a>
+</header>
+
+<section class="studyhub-container">
+  {% for cat in categories %}
+  <article class="study-card">
+    {% if cat.image %}
+    <img src="{{ url_for('static', filename=cat.image) }}" alt="{{ cat.title }}">
+    {% else %}
+    <div class="card-fallback" aria-hidden="true">{{ cat.title[0] }}</div>
+    {% endif %}
+    <div class="card-info">
+      <h3>{{ cat.title }}</h3>
+      <p>PDFs: {{ cat.count }} · Coming soon</p>
+    </div>
+  </article>
+  {% endfor %}
+</section>
+
+</body>
+</html>

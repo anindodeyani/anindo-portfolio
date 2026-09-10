@@ -1,0 +1,82 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+body {
+  background: #0e0e0e;
+  color: #fff;
+}
+
+/* Header */
+.studyhub-header {
+  padding: 20px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.studyhub-header h1 {
+  font-size: 28px;
+}
+
+.back-btn {
+  text-decoration: none;
+  color: #ff4d4d;
+  font-weight: 500;
+}
+
+/* Container */
+.studyhub-container {
+  padding: 40px 30px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 25px;
+}
+
+/* Card */
+.study-card {
+  background: #151515;
+  border-radius: 14px;
+  overflow: hidden;
+  text-decoration: none;
+  color: white;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.study-card img,
+.card-fallback {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+}
+
+.card-fallback {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 42px;
+  font-weight: 700;
+  background: linear-gradient(135deg, #2a2a2a, #151515);
+  color: #ff4d4d;
+}
+
+.study-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 30px rgba(255, 77, 77, 0.25);
+}
+
+.card-info {
+  padding: 15px;
+}
+
+.card-info h3 {
+  margin-bottom: 6px;
+}
+
+.card-info p {
+  font-size: 14px;
+  opacity: 0.8;
+}

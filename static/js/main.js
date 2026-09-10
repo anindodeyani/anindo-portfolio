@@ -29,9 +29,38 @@
       const target = node.getAttribute("data-scroll");
       if (!target) return;
       e.preventDefault();
+      closeMobileNav();
       smoothScrollTo(target);
     });
   });
+
+  const navToggle = document.querySelector(".nav-toggle");
+  const navLinks = document.getElementById("navLinks");
+
+  function closeMobileNav() {
+    if (!navToggle || !navLinks) return;
+    navLinks.classList.remove("open");
+    navToggle.classList.remove("open");
+    navToggle.setAttribute("aria-expanded", "false");
+    navToggle.setAttribute("aria-label", "Open menu");
+  }
+
+  if (navToggle && navLinks) {
+    navToggle.addEventListener("click", () => {
+      const isOpen = navLinks.classList.toggle("open");
+      navToggle.classList.toggle("open", isOpen);
+      navToggle.setAttribute("aria-expanded", String(isOpen));
+      navToggle.setAttribute("aria-label", isOpen ? "Close menu" : "Open menu");
+    });
+
+    navLinks.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", closeMobileNav);
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") closeMobileNav();
+    });
+  }
 
   // -----------------------------
   // Tilt effect (optional)
@@ -93,34 +122,37 @@ if (window.innerWidth < 768) {
 
 let nodes = [];
 
+let viewW = 0;
+let viewH = 0;
+
 function resizeCanvas() {
   const rect = hero.getBoundingClientRect();
   const dpr = window.devicePixelRatio || 1;
 
-  canvas.width = rect.width * dpr;
-  canvas.height = rect.height * dpr;
+  viewW = rect.width;
+  viewH = rect.height;
 
-  canvas.style.width = rect.width + "px";
-  canvas.style.height = rect.height + "px";
+  canvas.width = viewW * dpr;
+  canvas.height = viewH * dpr;
+
+  canvas.style.width = viewW + "px";
+  canvas.style.height = viewH + "px";
 
   ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
 }
 
 function resetNodes() {
-  const w = canvas.width;
-  const h = canvas.height;
-
   nodes = Array.from({ length: settings.nodeCount }, () => ({
-    x: Math.random() * w,
-    y: Math.random() * h,
+    x: Math.random() * viewW,
+    y: Math.random() * viewH,
     vx: (Math.random() - 0.5) * settings.nodeSpeed,
     vy: (Math.random() - 0.5) * settings.nodeSpeed,
   }));
 }
 
 function draw() {
-  const w = canvas.width;
-  const h = canvas.height;
+  const w = viewW;
+  const h = viewH;
 
   ctx.clearRect(0, 0, w, h);
 
@@ -196,7 +228,7 @@ document.addEventListener("DOMContentLoaded", function() {
       item.classList.add("active");
 
       const newSrc = item.getAttribute("data-model");
-      viewer.setAttribute("src", newSrc);
+      if (viewer && newSrc) viewer.setAttribute("src", newSrc);
 
     });
   });
@@ -235,22 +267,34 @@ const lightbox = document.getElementById("lightbox");
 const lightboxImg = document.getElementById("lightboxImg");
 const closeBtn = document.querySelector(".lightbox-close");
 
-renderImages.forEach(img=>{
-  img.addEventListener("click", ()=>{
-    lightbox.classList.add("active");
-    lightboxImg.src = img.src;
-  });
-});
-
-closeBtn.addEventListener("click", ()=>{
+function closeLightbox() {
+  if (!lightbox) return;
   lightbox.classList.remove("active");
-});
+  if (lightboxImg) lightboxImg.removeAttribute("src");
+}
 
-lightbox.addEventListener("click", (e)=>{
-  if(e.target === lightbox){
-    lightbox.classList.remove("active");
+if (lightbox && lightboxImg) {
+  renderImages.forEach(img=>{
+    img.addEventListener("click", ()=>{
+      lightbox.classList.add("active");
+      lightboxImg.src = img.src;
+    });
+  });
+
+  if (closeBtn) {
+    closeBtn.addEventListener("click", closeLightbox);
   }
-});
+
+  lightbox.addEventListener("click", (e)=>{
+    if(e.target === lightbox){
+      closeLightbox();
+    }
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeLightbox();
+  });
+}
 // -----------------------------
 // Hero Name Wave Animation (Auto Repeat)
 // -----------------------------
